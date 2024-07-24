@@ -14,7 +14,6 @@ const pool = new Pool({ connectionString: process.env.PG_URI });
 
 app.use(express.json());
 app.use(cors());
-app.use(bodyParser.json());
 // get all posts
 app.get("/posts", async (req, res) => {
   try {
