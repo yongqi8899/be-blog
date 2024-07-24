@@ -46,12 +46,11 @@ app.post("/posts", async (req, res) => {
     if (!title || !author || !content || !cover)
       throw new Error("Missing data");
 
-    const results = await pool.query(
+    const { rows } = await pool.query(
       "INSERT INTO posts (title, author, content, cover) VALUES ($1, $2, $3, $4) RETURNING *",
       [title, author, content, cover]
     );
-    const posts = results.rows[0];
-    return res.json(posts);
+    return res.json(rows);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
