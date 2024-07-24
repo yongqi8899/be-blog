@@ -1,11 +1,7 @@
-import express from "express"; // Import express
+import express from "express";
 import cors from "cors";
 import pg from "pg";
 const { Pool } = pg;
-
-import bodyParser from "body-parser";
-
-/* Need to run npm i , npm i cors , npm i express , npm i pg , npm i -D dotenv   */
 
 const PORT = process.env.PORT || 8000; 
 
